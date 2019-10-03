@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block home %}
+<!-- HEADER -->
+<div class="header-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="header-text">
+                    <h1>Explore <br>new music.</h1>
+                    <p>Feel the music.</p>
+                    <!-- TODO: Make btn to market -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="body-container">
+    <!-- FEATURED -->
+    <div class="featured-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="featured-title">Featured Songs</h1>
+                </div>
+                <div class="col-md-4">
+                    <div class="featured-card card-one">
+                        <h1>
+                            Señorita
+                            <span>Shawn Mendes and Camila Cabello</span>
+                        </h1>
+                        <button class="btn btn-listen" type="submit">
+                            <a href="https://www.youtube.com/watch?v=Pkh8UtuejGw" target="_blank">Listen Now</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="featured-card card-two">
+                        <h1>
+                            No Guidance
+                            <span>Chris Brown (feat. Drake)</span>
+                        </h1>
+                        <button class="btn btn-listen" type="submit">
+                            <a href="https://www.youtube.com/watch?v=6L_k74BOLag" target="_blank">Listen Now</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="featured-card card-three">
+                        <h1>
+                            Circles
+                            <span>Post Malone</span>
+                        </h1>
+                        <button class="btn btn-listen" type="submit">
+                            <a href="https://www.youtube.com/watch?v=wXhTHyIgQ_U" target="_blank">Listen Now</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- RECOMMENDATIONS -->
+    <div class="recommended-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="featured-title">Recommended Albums</h1>
+                </div>
+                <div class="col-md-3">
+                    <div class="album">
+                        <a href="https://open.spotify.com/album/41GuZcammIkupMPKH2OJ6I?si=pwMrf6nQQ9epJovknIx9-Q" target="_blank">
+                            <div class="album-one"></div>
+                        </a>
+                    </div>
+                    <div class="recommended-card-info">
+                        <h1>
+                            Astroworld
+                            <span><br>Travis Scott</span>
+                        </h1>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="album">
+                        <a href="https://open.spotify.com/album/5s0rmjP8XOPhP6HhqOhuyC?si=8FAXo-4qT_uHb2wscxjG3w" target="_blank">
+                            <div class="album-two"></div>
+                        </a>
+                    </div>
+                    <div class="recommended-card-info">
+                        <h1>
+                            Stoney
+                            <span><br>Post Malone</span>
+                        </h1>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="album">
+                        <a href="https://open.spotify.com/album/1bnHPO4dKK7IjvgrtVBcQh?si=CHqPlyAcShuFjHYzzK7bVA" target="_blank">
+                            <div class="album-three"></div>
+                        </a>
+
+                    </div>
+                    <div class="recommended-card-info">
+                        <h1>
+                            So Much Fun
+                            <span><br>Young Thug</span>
+                        </h1>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="album">
+                        <a href="https://open.spotify.com/album/4I3EcXD4e3KcEoDJfFEZ5b?si=vW2XIpggQmeA59048N_lkw" target="_blank">
+                            <div class="album-four"></div>
+                        </a>
+                    </div>
+                    <div class="recommended-card-info">
+                        <h1>
+                            Savage Mode
+                            <span><br>21 Savage, Metro Boomin</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

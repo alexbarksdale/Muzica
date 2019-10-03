@@ -1,0 +1,106 @@
+@import 'manager';
+
+.market-container {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(14, 49, 77, 1) 100%);
+    margin-top: -71px;
+}
+
+.market-header {
+    margin-top: 150px;
+    h1 {
+        color: #fff;
+    }
+}
+
+/*leaderboards*/
+
+.leaderboards-container {
+    margin-top: 20px;
+}
+
+/* Table */
+
+.ld {
+    margin-bottom: 30px;
+}
+
+.ldheader {
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px;
+    background-color: #1c1c1c;
+    box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.32),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.19);
+
+    h1 {
+        font-size: 16px;
+        color: #ffff;
+        text-transform: uppercase;
+        @include ldheader-text;
+    }
+
+    h2 {
+        font-size: 12px;
+        color: #d3d3d3;
+        @include ldheader-text;
+    }
+}
+
+.ldtable {
+    margin-top: -2px;
+    width: 100%;
+    background-color: #fafafa;
+    border: 1px solid #d2d2d2;
+
+    a {
+        text-decoration: none;
+        color: #337ab7;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    thead {
+        background-color: #dcdcdc;
+    }
+
+    tr {
+        border-top: 1px solid #d2d2d2;
+    }
+
+    td {
+        padding-top: 10px;
+        color: #8f8f8f;
+    }
+
+    th {
+        font-size: 12px;
+        text-transform: uppercase;
+        padding: 9px 0px 9px 0px;
+        color: #707070;
+
+        &:first-of-type {
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+}
+
+td {
+    h1 {
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #707070;
+    }
+}
+
+.ldtable-altcolor tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.ldtable tr > td:first-of-type {
+    font-weight: 700;
+    text-align: center;
+}

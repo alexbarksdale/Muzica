@@ -1,0 +1,141 @@
+@import 'manager';
+
+// Header Properties
+.header-container {
+    background: url('/static/img/header-image.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: -71px;
+}
+
+.header-text {
+    padding: 150px 4.5rem;
+
+    h1 {
+        background: linear-gradient(
+            90deg,
+            rgba(143, 70, 208, 1) 0%,
+            rgba(255, 55, 103, 1) 0%,
+            rgba(255, 192, 55, 1) 17%,
+            rgba(100, 250, 17, 1) 39%,
+            rgba(55, 180, 255, 1) 60%,
+            rgba(179, 55, 255, 1) 89%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: capitalize;
+        font-size: 4em;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 24px;
+        color: #8a8a8a8f;
+        margin-top: -15px;
+    }
+}
+
+// Featured Properties
+.body-container {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(14, 49, 77, 1) 100%);
+}
+
+.featured-title {
+    color: $pure-white;
+    margin-top: 20px;
+}
+
+.featured-card {
+    h1 {
+        color: $pure-white;
+        font-size: 2em;
+        display: grid;
+        text-shadow: 2px 2px 8px #000000;
+        span {
+            font-size: 13px;
+            color: $featured-artist;
+        }
+    }
+
+    .btn-listen {
+        padding: 3px 10px;
+        background-color: $green-btn;
+        margin-top: 11px;
+
+        a {
+            color: $pure-white;
+            text-decoration: none;
+        }
+
+        &:hover {
+            background-color: #4d921a;
+        }
+    }
+}
+
+.card-one {
+    background: url('/static/img/featured-one.jpg') no-repeat;
+    @include featured-artist-card;
+}
+.card-two {
+    background: url('/static/img/featured-two.jpg') no-repeat;
+    @include featured-artist-card;
+}
+.card-three {
+    background: url('/static/img/featured-three.jpg') no-repeat;
+    @include featured-artist-card;
+}
+
+// Recommended Properties
+.recommended-container {
+    padding-bottom: 73px;
+    margin-top: 35px;
+}
+
+.album:hover {
+    opacity: 0.6;
+}
+
+.album-one {
+    background: url('/static/img/recommend-one.jpg') no-repeat;
+    box-shadow: 0px 0px 58px -8px rgba(30, 146, 235, 1),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.07);
+    @include recommended-albums;
+}
+
+.album-two {
+    background: url('/static/img/recommend-two.jpg') no-repeat;
+    box-shadow: 0px 0px 58px -8px rgba(255, 77, 23, 1),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.07);
+    @include recommended-albums;
+}
+.album-three {
+    background: url('/static/img/recommend-three.jpeg') no-repeat;
+    box-shadow: 0px 0px 58px -8px rgba(145, 177, 18, 1),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.07);
+    @include recommended-albums;
+}
+.album-four {
+    background: url('/static/img/recommend-four.jpeg') no-repeat;
+    box-shadow: 0px 0px 58px -8px rgba(235, 30, 30, 1),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.07);
+    @include recommended-albums;
+}
+
+.recommended-card-info {
+    margin-top: 15px;
+    h1 {
+        color: $pure-white;
+        font-size: 1.3em;
+
+        span {
+            color: $featured-artist;
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    .header-text h1 {
+        font-size: 3em;
+    }
+}

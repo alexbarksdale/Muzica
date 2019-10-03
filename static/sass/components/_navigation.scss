@@ -1,0 +1,17 @@
+@import 'manager';
+
+.navbar-brand {
+    color: $pure-white;
+    font-size: 1.4em;
+    @include navigation-pack;
+}
+
+.nav-item a {
+    color: $pure-white;
+    @include navigation-pack;
+}
+
+.btn-login {
+    color: $pure-white;
+    @include navigation-pack;
+}
