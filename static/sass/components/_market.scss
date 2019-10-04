@@ -3,7 +3,7 @@
 .market-container {
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(14, 49, 77, 1) 100%);
     margin-top: -71px;
-    height: 92vh;
+    height: 100vh;
 }
 
 .market-header {
@@ -17,12 +17,7 @@
     margin-top: 20px;
 }
 
-/* Table */
-.ld {
-    margin-bottom: 30px;
-}
-
-.ldheader {
+.market-table-header {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     text-align: center;
@@ -43,7 +38,7 @@
     }
 }
 
-.ldtable {
+.market-content {
     margin-top: -2px;
     width: 100%;
     background-color: #fafafa;
@@ -92,11 +87,11 @@
     }
 }
 
-.ldtable-altcolor tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.ldtable tr > td:first-of-type {
+.market-content tr > td:first-of-type {
     font-weight: 700;
     text-align: center;
+}
+
+.market-altcolor tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
 }

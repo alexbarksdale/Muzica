@@ -33,6 +33,21 @@
         color: #8a8a8a8f;
         margin-top: -15px;
     }
+
+    .buy-btn {
+        font-weight: 600;
+        background-color: $green-btn;
+        transition: 0.3s;
+
+        a {
+            color: $pure-white;
+            text-decoration: none;
+        }
+
+        &:hover {
+            background-color: #4d921a;
+        }
+    }
 }
 
 // Featured Properties
@@ -51,6 +66,7 @@
         font-size: 2em;
         display: grid;
         text-shadow: 2px 2px 8px #000000;
+
         span {
             font-size: 13px;
             color: $featured-artist;
