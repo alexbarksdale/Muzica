@@ -1,72 +1,78 @@
 {% extends 'base.html' %}
-
-{% block create_listing %}
-<div class="login-container">
+{% block listing %}
+<div class="listing-container">
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <div class="login-header">
-                    <h1 class="text-center">Create Listing</h1>
-                </div>
-
-                <div class="login-content">
-                    <div class="col-md-6">
-                        <!-- SONG TITLE -->
-                        <div class="form-group">
-                            <label for="song-title">Song Title</label>
-
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i class="fas fa-music"></i>
-                                    </div>
-                                </div>
-                                <input type="text" name="title" id="listing-title" class="form-control" placeholder="Enter the song title">
-                            </div>
-
-                        </div>
-                        <!-- ARTIST -->
-                        <div class="form-group">
-                            <label for="song-artist">Artist</label>
-
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                </div>
-                                <input type="text" name="title" id="listing-artist" class="form-control" placeholder="Enter the artist">
-                            </div>
-                        </div>
-                        <!-- COST -->
-                        <div class="form-group">
-                            <label for="song-cost">Price</label>
-
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i class="fas fa-dollar-sign"></i>
-                                    </div>
-                                </div>
-                                <input type="text" name="title" id="listing-cost" class="form-control" placeholder="Enter the price">
-                            </div>
-
-                        </div>
-                        <!-- LINK -->
-                        <div class="form-group">
-                            <label for="song-source">Link Source</label>
-
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <i class="fas fa-link"></i>
-                                    </div>
-                                </div>
-                                <input type="text" name="title" id="listing-cost" class="form-control" placeholder="Enter the source">
-                            </div>
+                <div class="listing-content">
+                    <div class="col-md-12">
+                        <div class="listing-header">
+                            <h1 class="text-center">Create Listing</h1>
                         </div>
 
+                        <form action="/market" method="POST">
+                            <!-- SONG TITLE -->
+                            <div class="form-group">
+                                <label for="song-title" class="listing-label">Song Title</label>
 
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-music"></i>
+                                        </div>
+                                    </div>
+
+                                    <input type="text" name="title" id="listing-title" class="form-control" placeholder="Enter the song title">
+                                </div>
+
+                            </div>
+                            <!-- ARTIST -->
+                            <div class="form-group">
+                                <label for="song-artist" class="listing-label">Artist</label>
+
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" name="artist" id="listing-artist" class="form-control" placeholder="Enter the artist">
+                                </div>
+                            </div>
+                            <!-- COST -->
+                            <div class="form-group">
+                                <label for="song-cost" class="listing-label">Price</label>
+
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-dollar-sign"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" name="price" id="listing-cost" class="form-control" placeholder="Enter the price">
+                                </div>
+
+                            </div>
+                            <!-- LINK -->
+                            <div class="form-group">
+                                <label for="song-source" class="listing-label">Link Source</label>
+
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-link"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" name="linksource" id="listing-cost" class="form-control" placeholder="Enter the source">
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-cancel">
+                                    <a href="/market">Cancel</a>
+                                </button>
+                                <button class="btn btn-create-listing" type="submit">Create </button>
+                            </div>
+                        </form>
 
                     </div>
                 </div>

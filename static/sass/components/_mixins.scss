@@ -34,3 +34,18 @@
     letter-spacing: 1.25px;
     text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
 }
+
+@mixin cc-listing {
+    padding: 5px 37px 5px 37px;
+    border: none;
+
+    a {
+        font-weight: 700;
+        color: $pure-white;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

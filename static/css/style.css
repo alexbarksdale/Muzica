@@ -256,7 +256,7 @@
   color: #fff;
   text-decoration: none;
   background-color: #64b924;
-  padding: 6px;
+  padding: 6px 8px;
   border-radius: 8px;
   letter-spacing: 1.25px;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
@@ -431,25 +431,33 @@
   transition: 0.3s;
 }
 
-.login-container {
+a:focus,
+button:focus,
+input[type='text']:focus,
+textarea:focus {
+  outline: none !important;
+}
+
+.listing-container {
   background: -webkit-gradient(linear, left top, left bottom, from(black), to(#0e314d));
   background: linear-gradient(180deg, black 0%, #0e314d 100%);
   margin-top: -71px;
   height: 100vh;
 }
 
-.login-header {
-  margin-top: 150px;
+.listing-header {
+  margin-bottom: 15px;
 }
 
-.login-header h1 {
-  color: #fff;
+.listing-header h1 {
+  color: #444444;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 5px;
 }
 
-.login-content {
+.listing-content {
+  margin-top: 150px;
   background-color: #fff;
   -webkit-box-shadow: 0px 3px 0px 0px #9e9e9e;
           box-shadow: 0px 3px 0px 0px #9e9e9e;
@@ -462,9 +470,73 @@
   border: none;
 }
 
+.listing-label {
+  font-weight: 700;
+}
+
 .form-control {
   border: none;
   border-radius: 0px;
   border-bottom: 2px solid #d9d9d9;
+}
+
+.form-control::-webkit-input-placeholder {
+  font-weight: 800;
+}
+
+.form-control:-ms-input-placeholder {
+  font-weight: 800;
+}
+
+.form-control::-ms-input-placeholder {
+  font-weight: 800;
+}
+
+.form-control::placeholder {
+  font-weight: 800;
+}
+
+.form-control:focus {
+  border-bottom: 2px solid red;
+}
+
+.btn-cancel {
+  background-color: #ff5b5b;
+  padding: 5px 37px 5px 37px;
+  border: none;
+}
+
+.btn-cancel a {
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-cancel a:hover {
+  text-decoration: none;
+}
+
+.btn-cancel:hover {
+  background-color: #e24a4a;
+}
+
+.btn-create-listing {
+  background-color: #64b924;
+  padding: 5px 37px 5px 37px;
+  border: none;
+}
+
+.btn-create-listing a {
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-create-listing a:hover {
+  text-decoration: none;
+}
+
+.btn-create-listing:hover {
+  background-color: #4d921a;
 }
 /*# sourceMappingURL=style.css.map */

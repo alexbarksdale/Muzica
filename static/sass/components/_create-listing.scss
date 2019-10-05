@@ -1,23 +1,31 @@
 @import 'manager';
 
+a:focus,
+button:focus,
+input[type='text']:focus,
+textarea:focus {
+    outline: none !important;
+}
+
 // Login Properties
-.login-container {
+.listing-container {
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(14, 49, 77, 1) 100%);
     margin-top: -71px;
     height: 100vh;
 }
 
-.login-header {
-    margin-top: 150px;
+.listing-header {
+    margin-bottom: 15px;
     h1 {
-        color: #fff;
+        color: #444444;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 5px;
     }
 }
 
-.login-content {
+.listing-content {
+    margin-top: 150px;
     background-color: $pure-white;
     box-shadow: 0px 3px 0px 0px rgb(158, 158, 158);
     border-radius: 8px;
@@ -25,13 +33,44 @@
 }
 
 //  INPUT PROPERTIES
+
 .input-group-text {
     background: none;
     border: none;
+}
+
+.listing-label {
+    font-weight: 700;
 }
 
 .form-control {
     border: none;
     border-radius: 0px;
     border-bottom: 2px solid $light-gray;
+
+    &::placeholder {
+        font-weight: 800;
+    }
+
+    &:focus {
+        border-bottom: 2px solid red;
+    }
+}
+
+.btn-cancel {
+    background-color: $delete-red;
+    @include cc-listing;
+
+    &:hover {
+        background-color: #e24a4a;
+    }
+}
+
+.btn-create-listing {
+    background-color: $green-btn;
+    @include cc-listing;
+
+    &:hover {
+        background-color: $green-hover;
+    }
 }

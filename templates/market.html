@@ -19,7 +19,7 @@
                 <div class="col-md-12">
                     <div class="market-table-header">
                         <h1>Music</h1>
-                        <a href="/create">
+                        <a href="/market/create">
                             Create Listing
                         </a>
                     </div>
@@ -35,19 +35,20 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for listings in listings %}
                             <tr>
                                 <div class="music-properties">
                                     <td>
-                                        <h1 class="music-position">1</h1>
+                                        <h1 class="music-position"> 1 </h1>
                                     </td>
                                     <td>
-                                        <h1 class="music-title">Title</h1>
+                                        <h1 class="music-title">{{ listings.title }}</h1>
                                     </td>
                                     <td>
-                                        <h1 class="music-artist">N/A</h1>
+                                        <h1 class="music-artist">{{ listings.artist }}</h1>
                                     </td>
                                     <td>
-                                        <h1 class="music-cost">$0</h1>
+                                        <h1 class="music-cost">{{ listings.price }}</h1>
                                     </td>
                                     <td>
                                         <h1 class="music-purchase">
@@ -67,41 +68,9 @@
 
                                         </h1>
                                     </td>
-                            </tr>
-                            <!-- TODO: REMOVE LATER -->
-                            <tr>
-                                <div class="music-properties">
-                                    <td>
-                                        <h1 class="music-position">2</h1>
-                                    </td>
-                                    <td>
-                                        <h1 class="music-title">Title</h1>
-                                    </td>
-                                    <td>
-                                        <h1 class="music-artist">N/A</h1>
-                                    </td>
-                                    <td>
-                                        <h1 class="music-cost">$0</h1>
-                                    </td>
-                                    <td>
-                                        <h1 class="music-purchase">
-                                            <a href="" class="buy-btn">Buy</a>
-                                        </h1>
-                                    </td>
-                                    <td>
-                                        <h1 class="music-edit">
-                                            <a href="">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </h1>
-                                        <h1 class="music-edit">
-                                            <a href="">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                        </h1>
-                                    </td>
                                 </div>
                             </tr>
+                            {% endfor %}
 
                         </tbody>
                     </table>
