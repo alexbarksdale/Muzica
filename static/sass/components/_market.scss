@@ -9,7 +9,23 @@
 .market-header {
     margin-top: 150px;
     h1 {
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-weight: 700;
         color: #fff;
+    }
+}
+
+.btn-create {
+    background-color: $green-btn;
+
+    a {
+        color: $pure-white;
+        text-decoration: none;
+    }
+
+    &:hover {
+        background-color: $green-hover;
     }
 }
 
@@ -21,8 +37,8 @@
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     text-align: center;
-    padding: 10px;
-    background-color: #1c1c1c;
+    padding: 10px 0px 15px 0px;
+    background-color: #313131;
 
     h1 {
         font-size: 16px;
@@ -31,10 +47,18 @@
         @include ldheader-text;
     }
 
-    h2 {
+    a {
         font-size: 12px;
-        color: #d3d3d3;
+        color: $pure-white;
+        text-decoration: none;
+        background-color: $green-btn;
+        padding: 6px;
+        border-radius: 8px;
         @include ldheader-text;
+
+        &:hover {
+            background-color: $green-hover;
+        }
     }
 }
 
@@ -45,12 +69,34 @@
     border-radius: 8px;
     box-shadow: 0px 3px 0px 0px rgb(158, 158, 158);
 
-    a {
+    .buy-btn {
         text-decoration: none;
         color: $green-btn;
 
         &:hover {
-            color: #478817;
+            color: $green-hover;
+            text-decoration: none;
+        }
+    }
+
+    .fa-trash-alt {
+        text-decoration: none;
+        color: $delete-red;
+        margin-right: 5px;
+
+        &:hover {
+            opacity: 0.7;
+            text-decoration: none;
+        }
+    }
+
+    .fa-edit {
+        text-decoration: none;
+        color: $edit-blue;
+
+        &:hover {
+            opacity: 0.7;
+
             text-decoration: none;
         }
     }
@@ -71,6 +117,7 @@
             font-weight: 700;
             text-transform: uppercase;
             color: #707070;
+            display: inline-block;
         }
     }
 

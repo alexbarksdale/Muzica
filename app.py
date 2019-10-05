@@ -10,3 +10,7 @@ def home_page():
 @app.route('/market')
 def market_page():
     return render_template('market.html')
+    
+@app.route('/create')
+def login_page():
+    return render_template('create_listing.html')
