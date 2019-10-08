@@ -2,17 +2,23 @@
 
 {% block market %}
 <div class="market-container">
+    <div class="header-video">
+        <div class="embed-responsive embed-responsive-16by9">
+            <video autoplay loop class="embed-responsive-item">
+                <source src="/static/video/artist.webm" type="video/mp4">
+            </video>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="market-header text-center">
-                    <h1>Market</h1>
+                    <h1>Market Listings</h1>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- TODO: Make modular -->
+    <!-- TODO: Make source link go into a tag for Title -->
     <div class="shop-container">
         <div class="container">
             <div class="row">
@@ -29,7 +35,7 @@
                                 <th>Position</th>
                                 <th>Song</th>
                                 <th>Artist</th>
-                                <th>Cost</th>
+                                <th>Price</th>
                                 <th>Purchase</th>
                                 <th>Edit</th>
                             </tr>
@@ -42,13 +48,18 @@
                                         <h1 class="music-position"> 1 </h1>
                                     </td>
                                     <td>
-                                        <h1 class="music-title">{{ listings.title }}</h1>
+                                        <!-- TODO: Add hover message-->
+                                        <h1 class="music-title">
+                                            <a href="{{ listings.source }}">
+                                                {{ listings.title }}
+                                            </a>
+                                        </h1>
                                     </td>
                                     <td>
                                         <h1 class="music-artist">{{ listings.artist }}</h1>
                                     </td>
                                     <td>
-                                        <h1 class="music-cost">{{ listings.price }}</h1>
+                                        <h1 class="music-cost">$ {{ listings.price }}</h1>
                                     </td>
                                     <td>
                                         <h1 class="music-purchase">

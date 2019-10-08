@@ -8,8 +8,12 @@
     margin-top: -71px;
 }
 
+// .embed-responsive-16by9::before {
+//     padding-top: 35.25% !important;
+// }
+
 .header-text {
-    padding: 150px 4.5rem;
+    padding: 150px 1.5rem;
 
     h1 {
         background: linear-gradient(
@@ -34,6 +38,10 @@
         margin-top: -15px;
     }
 
+    span {
+        text-transform: none !important;
+    }
+
     .buy-btn {
         font-weight: 600;
         background-color: $green-btn;
@@ -53,6 +61,7 @@
 // Featured Properties
 .body-container {
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(14, 49, 77, 1) 100%);
+    height: 100vh;
 }
 
 .featured-title {

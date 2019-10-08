@@ -6,6 +6,14 @@
     height: 100vh;
 }
 
+.header-video {
+    height: 84px;
+}
+
+.embed-responsive-16by9::before {
+    padding-top: 25.25% !important;
+}
+
 .market-header {
     margin-top: 150px;
     h1 {
@@ -141,4 +149,9 @@
 
 .market-altcolor tbody tr:nth-of-type(odd) {
     background-color: rgba(0, 0, 0, 0.05);
+}
+
+.music-title a {
+    text-decoration: none;
+    color: #00c3ff;
 }

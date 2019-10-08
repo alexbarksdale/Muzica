@@ -12,7 +12,7 @@
 }
 
 .header-text {
-  padding: 150px 4.5rem;
+  padding: 150px 1.5rem;
 }
 
 .header-text h1 {
@@ -29,6 +29,10 @@
   font-size: 24px;
   color: #8a8a8a8f;
   margin-top: -15px;
+}
+
+.header-text span {
+  text-transform: none !important;
 }
 
 .header-text .buy-btn {
@@ -50,6 +54,7 @@
 .body-container {
   background: -webkit-gradient(linear, left top, left bottom, from(black), to(#0e314d));
   background: linear-gradient(180deg, black 0%, #0e314d 100%);
+  height: 100vh;
 }
 
 .featured-title {
@@ -207,6 +212,14 @@
   height: 100vh;
 }
 
+.header-video {
+  height: 84px;
+}
+
+.embed-responsive-16by9::before {
+  padding-top: 25.25% !important;
+}
+
 .market-header {
   margin-top: 150px;
 }
@@ -348,6 +361,11 @@
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+.music-title a {
+  text-decoration: none;
+  color: #00c3ff;
+}
+
 * {
   font-family: 'Nunito', sans-serif;
   -webkit-transition: 0.3s;
@@ -445,6 +463,15 @@ textarea:focus {
   height: 100vh;
 }
 
+.listing-content {
+  margin-top: 150px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 3px 0px 0px #9e9e9e;
+          box-shadow: 0px 3px 0px 0px #9e9e9e;
+  border-radius: 8px;
+  padding: 20px;
+}
+
 .listing-header {
   margin-bottom: 15px;
 }
@@ -454,15 +481,6 @@ textarea:focus {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 5px;
-}
-
-.listing-content {
-  margin-top: 150px;
-  background-color: #fff;
-  -webkit-box-shadow: 0px 3px 0px 0px #9e9e9e;
-          box-shadow: 0px 3px 0px 0px #9e9e9e;
-  border-radius: 8px;
-  padding: 20px;
 }
 
 .input-group-text {
@@ -504,6 +522,8 @@ textarea:focus {
   background-color: #ff5b5b;
   padding: 5px 37px 5px 37px;
   border: none;
+  color: #fff;
+  font-weight: 700;
 }
 
 .btn-cancel a {
@@ -517,6 +537,10 @@ textarea:focus {
 }
 
 .btn-cancel:hover {
+  color: #fff;
+}
+
+.btn-cancel:hover {
   background-color: #e24a4a;
 }
 
@@ -524,6 +548,8 @@ textarea:focus {
   background-color: #64b924;
   padding: 5px 37px 5px 37px;
   border: none;
+  color: #fff;
+  font-weight: 700;
 }
 
 .btn-create-listing a {
@@ -534,6 +560,10 @@ textarea:focus {
 
 .btn-create-listing a:hover {
   text-decoration: none;
+}
+
+.btn-create-listing:hover {
+  color: #fff;
 }
 
 .btn-create-listing:hover {

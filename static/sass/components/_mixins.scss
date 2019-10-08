@@ -38,6 +38,8 @@
 @mixin cc-listing {
     padding: 5px 37px 5px 37px;
     border: none;
+    color: $pure-white;
+    font-weight: 700;
 
     a {
         font-weight: 700;
@@ -47,5 +49,9 @@
         &:hover {
             text-decoration: none;
         }
+    }
+
+    &:hover {
+        color: $pure-white;
     }
 }
