@@ -69,3 +69,8 @@ def listing_update(listings_id):
         {'$set': updated_listings})
     
     return redirect(url_for('market_page', listings_id=listings_id))
+    
+@app.route('/market/<listings_id>/delete', methods=['POST'])
+def listing_delete(listings_id):
+    listings.delete_one({'_id': ObjectId(listings_id)})
+    return redirect(url_for('market_page'))

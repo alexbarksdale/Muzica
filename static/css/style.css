@@ -319,6 +319,10 @@
   text-decoration: none;
 }
 
+.market-content .btn-edit {
+  padding: 0;
+}
+
 .market-content thead {
   background-color: #dcdcdc;
 }

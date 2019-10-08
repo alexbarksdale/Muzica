@@ -68,14 +68,21 @@
                                     </td>
                                     <td>
                                         <h1 class="music-delete">
-                                            <a href="/market">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
+                                            <form method='POST' action='/market/{{ listings._id }}/delete'>
+                                                <button class="btn btn-edit">
+                                                    <a href="/market">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </a>
+                                                </button>
+                                            </form>
+
                                         </h1>
                                         <h1 class="music-edit">
-                                            <a href="/market/{{ listings._id }}/edit">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
+                                            <button class="btn btn-edit">
+                                                <a href="/market/{{ listings._id }}/edit">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            </button>
 
                                         </h1>
                                     </td>
