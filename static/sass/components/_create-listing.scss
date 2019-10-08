@@ -59,10 +59,10 @@ textarea:focus {
     &::placeholder {
         font-weight: 800;
     }
-
-    &:focus {
-        border-bottom: 2px solid red;
-    }
+    //TODO: Add later
+    // &:focus {
+    //     border-bottom: 2px solid red;
+    // }
 }
 
 .btn-cancel {

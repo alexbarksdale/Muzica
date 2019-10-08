@@ -1,0 +1,61 @@
+<!-- SONG TITLE -->
+<div class="form-group">
+    <label for="song-title" class="listing-label">Song Title</label>
+
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="fas fa-music"></i>
+            </div>
+        </div>
+
+        <input type="text" name="title" id="listing-title" class="form-control" placeholder="Enter the song title" value="{{ listing.title }}">
+    </div>
+
+</div>
+<!-- ARTIST -->
+<div class="form-group">
+    <label for="song-artist" class="listing-label">Artist</label>
+
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+        <input type="text" name="artist" id="listing-artist" class="form-control" placeholder="Enter the artist" value="{{ listing.artist }}">
+    </div>
+</div>
+<!-- COST -->
+<div class="form-group">
+    <label for="song-cost" class="listing-label">Price</label>
+
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="fas fa-dollar-sign"></i>
+            </div>
+        </div>
+        <input type="text" name="price" id="listing-cost" class="form-control" placeholder="Enter the price" value="{{ listing.price }}">
+    </div>
+
+</div>
+<!-- LINK -->
+<div class="form-group">
+    <label for="song-source" class="listing-label">Link Source</label>
+
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="fas fa-link"></i>
+            </div>
+        </div>
+        <input type="text" name="linksource" id="listing-cost" class="form-control" placeholder="Enter the source" value="{{ listing.source }}">
+    </div>
+</div>
+<div class="col-md-12 text-center">
+    <button class="btn btn-cancel">
+        <a href="/market">Cancel</a>
+    </button>
+    <button class="btn btn-create-listing" type="submit">{{type}}</button>
+</div>

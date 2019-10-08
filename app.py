@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
+from bson.objectid import ObjectId
+
 
 client = MongoClient()
 db = client.Muzica
@@ -21,7 +23,7 @@ def market_page():
     
 @app.route('/market/create')
 def listing_page():
-    return render_template('create_listing.html')
+    return render_template('create_listing.html', listing={}, title_type='Create Listing', type='Create')
 
 '''
 Submits a new listing after the user creates one.
@@ -36,10 +38,34 @@ def listing_submit():
         'price': request.form.get('price'),
         'source': request.form.get('linksource')
     }
-    listings.insert_one(listing)
-    return redirect(url_for('market_page'))
+    listings_id = listings.insert_one(listing).inserted_id
+    return redirect(url_for('market_page', listings_id=listings_id))
+
+'''
+Edit looks through the LISTINGS databse and finds one ID corresponding to the
+listing the user clicked.
+'''
+        
+@app.route('/market/<listings_id>/edit')
+def listing_edit(listings_id):
+    listing = listings.find_one({'_id': ObjectId(listings_id)})
+    return render_template('edit_listing.html', title_type='Edit', title=listing['title'], type='Update', listing=listing)
+
+'''
+Updates the listing page with the edit, if any.
+'''
+
+@app.route('/market/<listings_id>', methods=['POST'])
+def listing_update(listings_id):
+    updated_listings = {
+        'title': request.form.get('title'),
+        'artist': request.form.get('artist'),
+        'price': request.form.get('price'),
+        'source': request.form.get('linksource')
+    }
     
-@app.route('/market/song/details')
-def listing_details():
-    return render_template('songdetails.html')
+    listings.update_one(
+        {'_id': ObjectId(listings_id)},
+        {'$set': updated_listings})
     
+    return redirect(url_for('market_page', listings_id=listings_id))

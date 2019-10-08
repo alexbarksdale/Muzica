@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% block listing %}
+<!-- TODO: Change all of these to 'content' later -->
+{% block listing_edit %}
 <div class="listing-container">
     <div class="header-video">
         <div class="embed-responsive embed-responsive-16by9">
@@ -18,7 +19,7 @@
                                 <h1 class="text-center">{{ title_type }} {{ title }}</h1>
                         </div>
 
-                        <form action="/market" method="POST">
+                        <form action="/market/{{listing._id}}" method="POST">
                             {% include 'partials/listing_form.html' %}
                         </form>
 
