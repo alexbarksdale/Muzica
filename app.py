@@ -19,10 +19,10 @@ app.config['SECRET_KEY'] = f'{SECRET_KEY}'
 
 @app.route('/')
 def home_page():
-
     if 'username' in session:
-        test = session['username']
-    return render_template('home.html', test=test)
+        user = session['username']
+        return render_template('home.html', user=user)
+    return render_template('home.html')
 
 
 '''
@@ -31,12 +31,18 @@ Shows all of the listings from users using .find().
 '''
 @app.route('/market')
 def market_page():
+    if 'username' in session:
+        user = session['username']
+        return render_template('market.html', listings=listings.find(), user=user)
     return render_template('market.html', listings=listings.find())
 
 
 @app.route('/market/create')
 def listing_page():
-    return render_template('create_listing.html', listing={}, title_type='Create Listing', type='Create')
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    user = session['username']
+    return render_template('create_listing.html', listing={}, title_type='Create Listing', type='Create', user=user)
 
 
 '''
@@ -65,8 +71,11 @@ listing the user clicked.
 
 @app.route('/market/<listings_id>/edit')
 def listing_edit(listings_id):
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    user = session['username']
     listing = listings.find_one({'_id': ObjectId(listings_id)})
-    return render_template('edit_listing.html', title_type='Edit', title=listing['title'], type='Update', listing=listing)
+    return render_template('edit_listing.html', title_type='Edit', title=listing['title'], type='Update', listing=listing, user=user)
 
 
 '''
@@ -99,16 +108,16 @@ def listing_delete(listings_id):
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        login_user = users.find_one({'name': request.form['username']})
 
-        # TODO: Make easier to read
+        login_user = users.find_one({'name': request.form['username']})
+        invalid = 'Incorrect username or password'
+
         if login_user:
             # Takes in two parameters to compare passwords, takes password the user entered and takes the existing password
             if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
                 return redirect(url_for('home_page'))
-
-        return 'Invalid username/password'
+        return render_template('login.html', invalid=invalid)
     return render_template('login.html')
 
 
@@ -117,6 +126,7 @@ def register():
     if request.method == 'POST':
 
         existing_user = users.find_one({'name': request.form['username']})
+        invalid_register = 'Username has already been taken'
 
         if existing_user is None:
             hashpass = bcrypt.hashpw(
@@ -127,10 +137,14 @@ def register():
 
             session['username'] = request.form['username']
             return redirect(url_for('home_page'))
-
-        return 'That username already exists!'
-
+        return render_template('register.html', invalid_register=invalid_register)
     return render_template('register.html')
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return render_template('home.html')
 
 
 if __name__ == '__main__':

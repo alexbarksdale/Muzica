@@ -481,6 +481,16 @@
   text-decoration: none;
 }
 
+.username {
+  color: #fff;
+  font-weight: 600;
+}
+
+.username a {
+  margin-left: 7px;
+  font-size: 15px;
+}
+
 * {
   font-family: 'Nunito', sans-serif;
   -webkit-transition: 0.3s;
@@ -604,6 +614,12 @@ textarea:focus {
   background-color: #4d921a;
 }
 
+* {
+  font-family: 'Nunito', sans-serif;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 .login-container {
   background: -webkit-gradient(linear, left top, left bottom, from(black), to(#0e314d));
   background: linear-gradient(180deg, black 0%, #0e314d 100%);
@@ -662,12 +678,18 @@ textarea:focus {
   font-weight: 800;
 }
 
-.no-sign {
+.no-sign,
+.invalid {
   margin-top: 10px;
   font-size: 15px;
 }
 
-.no-sign a {
+.no-sign a,
+.invalid a {
   text-decoration: none;
+}
+
+.invalid {
+  color: #ff5b5b;
 }
 /*# sourceMappingURL=style.css.map */

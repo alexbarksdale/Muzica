@@ -21,3 +21,13 @@
     color: $pure-white;
     @include navigation-pack;
 }
+
+.username {
+    color: $pure-white;
+    font-weight: 600;
+
+    a {
+        margin-left: 7px;
+        font-size: 15px;
+    }
+}
