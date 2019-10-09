@@ -4,22 +4,25 @@ from bson.objectid import ObjectId
 import os
 import bcrypt
 
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
 MONGO_URI = os.environ.get('MONGO_URI')
 client = MongoClient(f'{MONGO_URI}')
 
 db = client.get_database('muzica_db')
 listings = db.muzica_listings
+users = db.muzica_users
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = f'{SECRET_KEY}'
 
 
 @app.route('/')
 def home_page():
 
     if 'username' in session:
-        return 'You are logged in as ' + session['username']
-
-    return render_template('home.html')
+        test = session['username']
+    return render_template('home.html', test=test)
 
 
 '''
@@ -93,21 +96,30 @@ def listing_delete(listings_id):
     return redirect(url_for('market_page'))
 
 
-# TEST
-
-@app.route('/login')
+@app.route('/login', methods=['POST', 'GET'])
 def login():
+    if request.method == 'POST':
+        login_user = users.find_one({'name': request.form['username']})
+
+        # TODO: Make easier to read
+        if login_user:
+            # Takes in two parameters to compare passwords, takes password the user entered and takes the existing password
+            if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
+                session['username'] = request.form['username']
+                return redirect(url_for('home_page'))
+
+        return 'Invalid username/password'
     return render_template('login.html')
 
 
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
-        users = db.users
+
         existing_user = users.find_one({'name': request.form['username']})
 
         if existing_user is None:
-            hashpass = client.hashpw(
+            hashpass = bcrypt.hashpw(
                 request.form['password'].encode('utf-8'), bcrypt.gensalt())
 
             users.insert(
@@ -119,3 +131,7 @@ def register():
         return 'That username already exists!'
 
     return render_template('register.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

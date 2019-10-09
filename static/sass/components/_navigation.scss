@@ -12,6 +12,12 @@
 }
 
 .btn-login {
+    padding-right: 15px;
+    color: $pure-white;
+    @include navigation-pack;
+}
+
+.btn-register {
     color: $pure-white;
     @include navigation-pack;
 }

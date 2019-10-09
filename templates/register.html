@@ -1,21 +1,38 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <form method=POST action="{{ url_for('register') }}">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="Username">
+<div class="login-container">
+    <div class="header-video">
+        <div class="embed-responsive embed-responsive-16by9">
+            <video autoplay loop class="embed-responsive-item">
+                <source src="/static/video/artist.webm" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="login-content">
+                    <div class="col-md-12">
+                        <div class="login-header">
+                            <h1 class="text-center">
+                                <h1 class="text-center">Register</h1>
+                        </div>
+                        <!-- TODO: Make Partial -->
+                        <form action="{{ url_for('register') }}" method="POST">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Username</label>
+                                <input type="text" class="form-control" name="username" placeholder="Create your username">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Create your password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Register</button>
-            </form>
-            <br>
+            </div>
         </div>
     </div>
 </div>

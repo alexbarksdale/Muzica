@@ -28,6 +28,10 @@
     height: 200px;
     border-radius: 8px;
     margin-top: 20px;
+
+    &:hover {
+        opacity: 0.6;
+    }
 }
 
 @mixin ldheader-text {
