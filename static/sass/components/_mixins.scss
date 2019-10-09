@@ -55,3 +55,10 @@
         color: $pure-white;
     }
 }
+
+@mixin listing-hover {
+    &:hover {
+        opacity: 0.6;
+        text-decoration: none;
+    }
+}

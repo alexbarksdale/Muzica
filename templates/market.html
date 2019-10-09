@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    <!-- TODO: Make source link go into a tag for Title -->
+
     <div class="shop-container">
         <div class="container">
             <div class="row">
@@ -45,10 +45,10 @@
                             <tr>
                                 <div class="music-properties">
                                     <td>
-                                        <h1 class="music-position"> 1 </h1>
+                                        <h1 class="music-position"> {{ loop.index }} </h1>
                                     </td>
                                     <td>
-                                        <!-- TODO: Add hover message-->
+                                        <!-- TODO: Add hover message -->
                                         <h1 class="music-title">
                                             <a href="{{ listings.source }}">
                                                 {{ listings.title }}

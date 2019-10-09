@@ -210,6 +210,7 @@
   background: linear-gradient(180deg, black 0%, #0e314d 100%);
   margin-top: -71px;
   padding-bottom: 100px;
+  height: 100vh;
 }
 
 .header-video {
@@ -258,6 +259,7 @@
 
 .market-table-header h1 {
   font-size: 16px;
+  font-weight: 700;
   color: #ffff;
   text-transform: uppercase;
   letter-spacing: 1.25px;
@@ -294,7 +296,7 @@
 }
 
 .market-content .buy-btn:hover {
-  color: #4d921a;
+  opacity: 0.6;
   text-decoration: none;
 }
 
@@ -305,7 +307,7 @@
 }
 
 .market-content .fa-trash-alt:hover {
-  opacity: 0.7;
+  opacity: 0.6;
   text-decoration: none;
 }
 
@@ -315,7 +317,7 @@
 }
 
 .market-content .fa-edit:hover {
-  opacity: 0.7;
+  opacity: 0.6;
   text-decoration: none;
 }
 
@@ -368,6 +370,11 @@
 .music-title a {
   text-decoration: none;
   color: #00c3ff;
+}
+
+.music-title a:hover {
+  opacity: 0.6;
+  text-decoration: none;
 }
 
 * {
