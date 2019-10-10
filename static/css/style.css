@@ -305,10 +305,17 @@
 .market-content .buy-btn {
   text-decoration: none;
   color: #64b924;
+  font-weight: 700;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  text-transform: uppercase;
+  padding: 0;
 }
 
 .market-content .buy-btn:hover {
   opacity: 0.6;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   text-decoration: none;
 }
 
@@ -320,6 +327,8 @@
 
 .market-content .fa-trash-alt:hover {
   opacity: 0.6;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   text-decoration: none;
 }
 
@@ -330,6 +339,8 @@
 
 .market-content .fa-edit:hover {
   opacity: 0.6;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   text-decoration: none;
 }
 
@@ -386,6 +397,8 @@
 
 .music-title a:hover {
   opacity: 0.6;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   text-decoration: none;
 }
 

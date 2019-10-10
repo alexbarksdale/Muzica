@@ -56,7 +56,7 @@ def listing_submit():
         'artist': request.form.get('artist'),
         'price': request.form.get('price'),
         'source': request.form.get('linksource'),
-        'username': session['username']
+        'username': session['username'],
     }
 
     # Checks to see if ALL of the inputs have been filled.
@@ -65,6 +65,7 @@ def listing_submit():
             return render_template('create_listing.html', listing={}, type=' Create', title_type='Create Listing', noinput='You must enter all inputs')
 
     # Checks to see if the input contains numbers ONLY.
+    #! Bug: Using decimals/periods doesn't work
     if listing['price'].isdigit():
         listings_id = listings.insert_one(listing).inserted_id
     else:
@@ -81,8 +82,6 @@ def listing_edit(listings_id):
     if 'username' not in session:
         return redirect(url_for('login'))
 
-    noinput = None
-
     username = session['username']
     listing = listings.find_one({'_id': ObjectId(listings_id)})
 
@@ -90,7 +89,7 @@ def listing_edit(listings_id):
     if username != listing['username']:
         return redirect(url_for('market_page'))
 
-    return render_template('edit_listing.html', title_type='Edit', title=listing['title'], type='Update', listing=listing, username=username, noinput=noinput, listing_id=listings_id)
+    return render_template('edit_listing.html', title_type='Edit', title=listing['title'], type='Update', listing=listing, username=username, listing_id=listings_id)
 
 
 '''
@@ -119,6 +118,7 @@ def listing_update(listings_id):
             return render_template('edit_listing.html', title_type='Edit', title=updated_listings['title'], type='Update', listing=updated_listings, username=username, noinput='You must enter all inputs', listing_id=listings_id)
 
     # Checks to see if the input contains numbers ONLY.
+    #! Bug: Using decimals/periods doesn't work
     if updated_listings['price'].isdigit():
         listings.update_one(
             {'_id': ObjectId(listings_id)},

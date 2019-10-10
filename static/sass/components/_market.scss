@@ -82,6 +82,10 @@
     .buy-btn {
         text-decoration: none;
         color: $green-btn;
+        font-weight: 700;
+        transition: 0.3s;
+        text-transform: uppercase;
+        padding: 0;
         @include listing-hover;
     }
 

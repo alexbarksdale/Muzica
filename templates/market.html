@@ -63,7 +63,11 @@
                                     </td>
                                     <td>
                                         <h1 class="music-purchase">
-                                            <a href="" class="buy-btn">Buy</a>
+                                            <form action="/market/{{ listings._id }}/delete" method="POST">
+                                                <button class="btn buy-btn">
+                                                    Buy
+                                                </button>
+                                            </form>
                                         </h1>
                                     </td>
                                     <td>
