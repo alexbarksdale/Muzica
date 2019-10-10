@@ -7,7 +7,7 @@ import bcrypt
 SECRET_KEY = os.environ.get('SECRET_KEY')
 MONGO_URI = os.environ.get('MONGO_URI')
 
-client = MongoClient(f'{MONGO_URI}')
+client = MongoClient(MONGO_URI=f'{MONGO_URI}?retryWrites=false')
 db = client.get_database('muzica_db')
 listings = db.muzica_listings
 users = db.muzica_users
@@ -185,4 +185,5 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
+
