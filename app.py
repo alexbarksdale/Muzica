@@ -5,14 +5,12 @@ import os
 import bcrypt
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
-# MONGO_URI = os.environ.get('MONGO_URI')
-
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Muzica')
-client = MongoClient(host=f'{host}?retryWrites=false')
-# db = client.get_default_database()
+MONGODB_URI = os.environ.get('MONGODB_URI')
+client = MongoClient(f'{MONGODB_URI}')
 db = client.get_database('muzica_db')
 listings = db.muzica_listings
 users = db.muzica_users
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = f'{SECRET_KEY}'
