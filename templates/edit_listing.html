@@ -17,9 +17,11 @@
                         <div class="listing-header">
                             <h1 class="text-center">
                                 <h1 class="text-center">{{ title_type }} {{ title }}</h1>
+                                <h2 class="text-center">{{ noinput }}</h2>
+
                         </div>
 
-                        <form action="/market/{{listing._id}}" method="POST">
+                        <form action="/market/{{listing_id}}/edit" method="POST">
                             {% include 'partials/listing_form.html' %}
                         </form>
 

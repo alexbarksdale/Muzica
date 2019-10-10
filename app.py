@@ -48,7 +48,7 @@ def listing_page():
 Submits a new listing after the user creates one.
 RETURNS: redirected page back to all the listings.
 '''
-@app.route('/market', methods=['POST'])
+@app.route('/market/create', methods=['POST'])
 def listing_submit():
 
     listing = {
@@ -59,19 +59,16 @@ def listing_submit():
         'username': session['username']
     }
 
-    while True:
-        # Checks to see if ALL of the inputs have been filled. TODO: Fix
-        print(listing)
-        for i in listing:
-            if listing[i].strip() == '':
-                return render_template('create_listing.html', listing={}, type=' Create', title_type='Create Listing', noinput='You must enter all inputs')
+    # Checks to see if ALL of the inputs have been filled.
+    for i in listing:
+        if listing[i].strip() == '':
+            return render_template('create_listing.html', listing={}, type=' Create', title_type='Create Listing', noinput='You must enter all inputs')
 
-        # Checks to see if the input contains numbers ONLY.
-        if listing['price'].isdigit() or range(len(listing['price']) <= 0):
-            listings_id = listings.insert_one(listing).inserted_id
-            break
-        else:
-            return render_template('create_listing.html', error='Please input numbers only', listing={}, type=' Create', title_type='Create Listing')
+    # Checks to see if the input contains numbers ONLY.
+    if listing['price'].isdigit():
+        listings_id = listings.insert_one(listing).inserted_id
+    else:
+        return render_template('create_listing.html', error='Please input numbers only', listing={}, type=' Create', title_type='Create Listing')
     return redirect(url_for('market_page', listings_id=listings_id))
 
 
@@ -84,19 +81,22 @@ def listing_edit(listings_id):
     if 'username' not in session:
         return redirect(url_for('login'))
 
+    noinput = None
+
     username = session['username']
     listing = listings.find_one({'_id': ObjectId(listings_id)})
 
+    # Checks to make sure the listing is the user's listing
     if username != listing['username']:
         return redirect(url_for('market_page'))
 
-    return render_template('edit_listing.html', title_type='Edit', title=listing['title'], type='Update', listing=listing, username=username)
+    return render_template('edit_listing.html', title_type='Edit', title=listing['title'], type='Update', listing=listing, username=username, noinput=noinput, listing_id=listings_id)
 
 
 '''
 Updates the listing page with the edit, if any.
 '''
-@app.route('/market/<listings_id>', methods=['POST'])
+@app.route('/market/<listings_id>/edit', methods=['POST'])
 def listing_update(listings_id):
 
     if 'username' not in session:
@@ -110,15 +110,21 @@ def listing_update(listings_id):
         'price': request.form.get('price'),
         'source': request.form.get('linksource')
     }
+
+    # Checks to see if ALL of the inputs have been filled.
+    for i in updated_listings:
+        if updated_listings[i].strip() == '':
+            print('Works')
+            # return redirect(url_for('listing_edit', noinput='You must enter all inputs', listing=updated_listings))
+            return render_template('edit_listing.html', title_type='Edit', title=updated_listings['title'], type='Update', listing=updated_listings, username=username, noinput='You must enter all inputs', listing_id=listings_id)
+
     # Checks to see if the input contains numbers ONLY.
-    while True:
-        if updated_listings['price'].isdigit() or range(len(updated_listings['price']) <= 0):
-            listings.update_one(
-                {'_id': ObjectId(listings_id)},
-                {'$set': updated_listings})
-            break
-        else:
-            return render_template('edit_listing.html', title_type='Edit', title=updated_listings['title'], type='Update', listing=updated_listings, username=username, error='Please input numbers only')
+    if updated_listings['price'].isdigit():
+        listings.update_one(
+            {'_id': ObjectId(listings_id)},
+            {'$set': updated_listings})
+    else:
+        return render_template('edit_listing.html', title_type='Edit', title=updated_listings['title'], type='Update', listing=updated_listings, username=username, error='Please input numbers only', listing_id=listings_id)
 
     return redirect(url_for('market_page', listings_id=listings_id))
 
