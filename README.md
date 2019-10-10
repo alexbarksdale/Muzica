@@ -63,9 +63,9 @@ MONGODB_URI=(YOUR_CONNECTION_STRING)
 SECRET_KEY=(ANYTHING YOU WANT)
 ```
 9. In app.py scroll to the very top and make sure everything below is commented out:
-
+```
 '#! ------------ Comment out when pushing to HEROKU ------------' 
-
+```
 
 ----------------------------------------------------------------
 COMPLETE 'IMPORTANT' before running!
