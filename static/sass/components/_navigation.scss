@@ -31,3 +31,14 @@
         font-size: 15px;
     }
 }
+
+.fa-bars {
+    color: $pure-white;
+    font-size: 35px;
+}
+
+@media (max-width: 991px) {
+    .navigation-container {
+        background-color: #000;
+    }
+}

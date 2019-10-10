@@ -491,6 +491,17 @@
   font-size: 15px;
 }
 
+.fa-bars {
+  color: #fff;
+  font-size: 35px;
+}
+
+@media (max-width: 991px) {
+  .navigation-container {
+    background-color: #000;
+  }
+}
+
 * {
   font-family: 'Nunito', sans-serif;
   -webkit-transition: 0.3s;
