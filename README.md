@@ -62,9 +62,13 @@ mongodb+srv://(YOUR_USERNAME):<password>@(CLUSTER_NAME)-(LOTS_OF_TEXT)
 MONGODB_URI=(YOUR_CONNECTION_STRING)
 SECRET_KEY=(ANYTHING YOU WANT)
 ```
-9. In app.py scroll to the very top and make sure everything below is commented out:
+9. In app.py scroll to the very top and make sure everything below is UNCOMMENTED out:
 ```
 '#! ------------ Comment out when pushing to HEROKU ------------' 
+```
+10. Make sure below the following is COMMENTED out: 
+```
+#! ------------ Comment out when using LOCALHOST ------------
 ```
 
 ----------------------------------------------------------------
