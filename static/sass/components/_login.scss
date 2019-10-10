@@ -25,31 +25,6 @@
     }
 }
 
-//  INPUT PROPERTIES
-
-.input-group-text {
-    background: none;
-    border: none;
-}
-
-.listing-label {
-    font-weight: 700;
-}
-
-.form-control {
-    border: none;
-    border-radius: 0px;
-    border-bottom: 2px solid $light-gray;
-
-    &::placeholder {
-        font-weight: 800;
-    }
-    //TODO: Add later
-    // &:focus {
-    //     border-bottom: 2px solid red;
-    // }
-}
-
 .no-sign,
 .invalid {
     margin-top: 10px;

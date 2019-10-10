@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block market %}
+{% block content %}
 <div class="market-container">
     <div class="header-video">
         <div class="embed-responsive embed-responsive-16by9">
@@ -50,7 +50,7 @@
                                     <td>
                                         <!-- TODO: Add hover message -->
                                         <h1 class="music-title">
-                                            <a href="{{ listings.source }}">
+                                            <a href="{{ listings.source }}" target="_blank">
                                                 {{ listings.title }}
                                             </a>
                                         </h1>
@@ -67,24 +67,24 @@
                                         </h1>
                                     </td>
                                     <td>
+                                        {% if username == listings.username %}
                                         <h1 class="music-delete">
                                             <form method='POST' action='/market/{{ listings._id }}/delete'>
                                                 <button class="btn btn-edit">
-                                                    <a href="/market">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </a>
+                                                    <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
 
                                         </h1>
                                         <h1 class="music-edit">
-                                            <button class="btn btn-edit">
-                                                <a href="/market/{{ listings._id }}/edit">
+                                            <form action="/market/{{ listings._id }}/edit">
+                                                <button class="btn btn-edit">
                                                     <i class="fas fa-edit"></i>
-                                                </a>
-                                            </button>
+                                                </button>
+                                            </form>
 
                                         </h1>
+                                        {% endif %}
                                     </td>
                                 </div>
                             </tr>

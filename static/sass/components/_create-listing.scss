@@ -11,7 +11,7 @@ textarea:focus {
 .listing-container {
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(14, 49, 77, 1) 100%);
     margin-top: -71px;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .listing-content {
@@ -29,6 +29,11 @@ textarea:focus {
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 5px;
+    }
+
+    h2 {
+        font-size: 15px;
+        color: $delete-red;
     }
 }
 
@@ -51,10 +56,9 @@ textarea:focus {
     &::placeholder {
         font-weight: 800;
     }
-    //TODO: Add later
-    // &:focus {
-    //     border-bottom: 2px solid red;
-    // }
+    &:focus {
+        border-bottom: 2px solid $green-btn;
+    }
 }
 
 .btn-cancel {

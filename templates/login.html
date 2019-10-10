@@ -19,17 +19,33 @@
                                 <h1 class="text-center">Login</h1>
                         </div>
 
-                        <!-- TODO: Make Partial -->
                         <form action="{{ url_for('login') }}" method="POST">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Username</label>
-                                <input type="text" class="form-control" name="username" placeholder="Enter your username">
+                                <label class="listing-label">Username</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" name="username" placeholder="Enter your username">
+                                </div>
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="Enter your password">
+                                <label class="listing-label">Password</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-lock"></i>
+                                        </div>
+                                    </div>
+                                    <input type="password" class="form-control" name="password" placeholder="Enter your password">
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Log In</button>
+
+
                             <h1 class="no-sign invalid">{{invalid}}</h1>
                             <div>
                                 <h1 class="no-sign">

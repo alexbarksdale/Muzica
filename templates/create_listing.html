@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block listing %}
+{% block content %}
 <div class="listing-container">
     <div class="header-video">
         <div class="embed-responsive embed-responsive-16by9">
@@ -16,6 +16,7 @@
                         <div class="listing-header">
                             <h1 class="text-center">
                                 <h1 class="text-center">{{ title_type }} {{ title }}</h1>
+                                <h2 class="text-center">{{ noinput }}</h2>
                         </div>
 
                         <form action="/market" method="POST">

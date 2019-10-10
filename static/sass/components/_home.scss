@@ -57,7 +57,7 @@
 // Featured Properties
 .body-container {
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(14, 49, 77, 1) 100%);
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .featured-title {
