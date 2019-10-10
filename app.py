@@ -4,13 +4,22 @@ from bson.objectid import ObjectId
 import os
 import bcrypt
 
+# MONGODB ATLAS DATABASE 
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+# MONGO_URI = os.environ.get('MONGO_URI')
+
+# client = MongoClient(f'{MONGO_URI}')
+# db = client.get_database('muzica_db')
+# listings = db.muzica_listings
+# users = db.muzica_users
+
 SECRET_KEY = os.environ.get('SECRET_KEY')
-MONGODB_URI = os.environ.get('MONGODB_URI')
-client = MongoClient(f'{MONGODB_URI}')
-db = client.get_database('muzica_db')
+
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Muzica')
+client = MongoClient(host=f'{host}?retryWrites=false')
+db = client.get_default_database()
 listings = db.muzica_listings
 users = db.muzica_users
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = f'{SECRET_KEY}'
