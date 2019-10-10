@@ -9,8 +9,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Muzica')
 client = MongoClient(host=f'{host}?retryWrites=false')
-db = client.get_default_database()
-# db = client.get_database('muzica_db')
+# db = client.get_default_database()
+db = client.get_database('muzica_db')
 listings = db.muzica_listings
 users = db.muzica_users
 
