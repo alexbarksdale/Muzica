@@ -87,6 +87,11 @@ You should see something similar to the output below:
  * Debugger is active!
  * Debugger PIN: (PIN)
 ```
+### Running Tests
+1. To simply run the test functions, type the following in your terminal
+```
+python3 test_app.py
+```
 ## Built With
 
 * [Flask](https://palletsprojects.com/p/flask/) - Lightweight web application framework
