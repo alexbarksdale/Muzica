@@ -4,23 +4,25 @@ from bson.objectid import ObjectId
 import os
 import bcrypt
 
-#! --- MONGODB ATLAS DATABASE (Personal Use) ---
-# SECRET_KEY = os.environ.get('SECRET_KEY')
-# MONGO_URI = os.environ.get('MONGO_URI')
-
-# client = MongoClient(f'{MONGO_URI}')
-# db = client.get_database('muzica_db')
-# listings = db.muzica_listings
-# users = db.muzica_users
-
-#! --- HEROKU ---
+#! --- MONGODB ATLAS DATABASE (Personal Use/Localhost Only) ---
+#! ------------ Comment out when pushing to HEROKU ------------
 SECRET_KEY = os.environ.get('SECRET_KEY')
+MONGO_URI = os.environ.get('MONGODB_URI')
 
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Muzica')
-client = MongoClient(host=f'{host}?retryWrites=false')
-db = client.get_default_database()
+client = MongoClient(f'{MONGO_URI}')
+db = client.get_database('muzica_db')
 listings = db.muzica_listings
 users = db.muzica_users
+
+#! ------------------------- HEROKU -------------------------
+#! ------------ Comment out when using LOCALHOST ------------
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+
+# host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Muzica')
+# client = MongoClient(host=f'{host}?retryWrites=false')
+# db = client.get_default_database()
+# listings = db.muzica_listings
+# users = db.muzica_users
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = f'{SECRET_KEY}'
@@ -141,9 +143,13 @@ def listing_update(listings_id):
 
 @app.route('/market/<listings_id>/delete', methods=['POST'])
 def listing_delete(listings_id):
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
+    username = session['username']
     listings.delete_one({'_id': ObjectId(listings_id)})
 
-    return redirect(url_for('market_page'))
+    return redirect(url_for('market_page', username=username))
 
 
 '''
