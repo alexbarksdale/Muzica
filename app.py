@@ -4,7 +4,7 @@ from bson.objectid import ObjectId
 import os
 import bcrypt
 
-# MONGODB ATLAS DATABASE 
+#! --- MONGODB ATLAS DATABASE (Personal Use) ---
 # SECRET_KEY = os.environ.get('SECRET_KEY')
 # MONGO_URI = os.environ.get('MONGO_URI')
 
@@ -13,6 +13,7 @@ import bcrypt
 # listings = db.muzica_listings
 # users = db.muzica_users
 
+#! --- HEROKU ---
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Muzica')
