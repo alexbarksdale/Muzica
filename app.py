@@ -48,6 +48,9 @@ def market_page():
     return render_template('market.html', listings=listings.find())
 
 
+'''
+Redirects the user to create a listing
+'''
 @app.route('/market/create')
 def listing_page():
     if 'username' not in session:
@@ -141,6 +144,9 @@ def listing_update(listings_id):
     return redirect(url_for('market_page', listings_id=listings_id))
 
 
+'''
+Grabs the listing ID depending on what listing the user clicked
+'''
 @app.route('/market/<listings_id>/delete', methods=['POST'])
 def listing_delete(listings_id):
     if 'username' not in session:
