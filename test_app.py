@@ -4,11 +4,12 @@ from app import app
 
 
 class MuzicaTestss(TestCase):
-    def setUp(self):
-        # Gets the Flask test client
-        self.client = app.test_client()
+    '''
+    Grabs app.py to use for testing
+    '''
 
-        # Displays Flask errors that happen
+    def setUp(self):
+        self.client = app.test_client()
         app.config['TESTING'] = True
 
     '''
