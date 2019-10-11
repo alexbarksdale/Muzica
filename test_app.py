@@ -5,8 +5,6 @@ from app import app
 
 class MuzicaTestss(TestCase):
     def setUp(self):
-        '''Stuff to do before every test.'''
-
         # Gets the Flask test client
         self.client = app.test_client()
 
@@ -20,7 +18,7 @@ class MuzicaTestss(TestCase):
     def test_home(self):
         result = self.client.get('/')
         self.assertEqual(result.status, '200 OK')
-        self.assertIn(b'title', result.data, "Page did not load")
+        self.assertIn(b'title', result.data, 'Page did not load')
 
     '''
     Tests to see if the page doesn;'t load because creating a listing
